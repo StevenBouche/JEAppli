@@ -1,0 +1,159 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>Project_JE</Name>
+    <RootNamespace>Project_JE</RootNamespace>
+    <Environment>PORT=443
+MANGOURL=mongodb://192.168.14.4:28018/ProjectJE
+JWT_KEY=HelloitsMe</Environment>
+    <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
+    <LaunchUrl>/api</LaunchUrl>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>f3b3630b-eb60-49da-b1f8-d8ef55536e3d</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>server.js</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <NodejsPort>443</NodejsPort>
+    <StartWebBrowser>False</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include=".env" />
+    <Content Include="app.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Certificat\cert.pem" />
+    <Content Include="Certificat\key.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Certificat\key.pem" />
+    <Content Include="config.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Controller\TeamController.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Controller\UserController.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Core\CryoUtils.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Core\PasswordManager.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Core\PermissionManager.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Core\TeamManager.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Core\UserManager.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Erreur\HttpError.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="middleware\AuthHandler.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="middleware\ErrorHandler.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="middleware\ValidHandler.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Model\Group.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Model\Identifiant.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Model\Team.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Model\User.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Model\UserItem.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="permission\Permission.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="permission\Role.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="router.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="server.js" />
+    <Content Include="package.json" />
+    <Content Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="config\" />
+    <Folder Include="Model\" />
+    <Folder Include="Core\" />
+    <Folder Include="Controller\" />
+    <Folder Include="middleware\" />
+    <Folder Include="Erreur\" />
+    <Folder Include="Certificat\" />
+    <Folder Include="Plugin\" />
+    <Folder Include="permission\" />
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
