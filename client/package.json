@@ -40,9 +40,6 @@
     "simple-line-icons": "^2.4.1",
     "universal-cookie": "^4.0.2"
   },
-  "devDependencies": {
-    "react-scripts": "^3.0.1"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -50,6 +47,9 @@
     "test:cov": "npm test -- --coverage --watchAll=false",
     "test:debug": "react-scripts --inspect-brk test --runInBand",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "react-scripts": "^3.0.1"
   },
   "bugs": {
     "url": "https://github.com/coreui/coreui-free-react-admin-template/issues"

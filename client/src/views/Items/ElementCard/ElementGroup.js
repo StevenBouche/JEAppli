@@ -98,7 +98,9 @@ class ElementGroup extends Component {
 
   handleView(){
    // console.log(this.state.dataSelect.redirectPath);
+   if(this.state.dataSelect != undefined){
     this.props.history.push(this.state.dataSelect.redirectPath);
+   }
   }
 
   stateOfButton(){

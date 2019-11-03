@@ -50,7 +50,7 @@ class UserEdit extends Component {
     }
 
     async handleAction(){
-    //    console.log(this.state)
+        console.log(this.state)
         if(this.state.userrole != "" && this.state.teamId != undefined && this.state.userId != undefined){
             var res = await TeamsManager.updateUserTeam(this.state.teamId, this.state.userId, this.state.userrole)
         }

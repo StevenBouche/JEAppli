@@ -45,7 +45,7 @@ class Group extends Component {
         idIndSelect: undefined,
         idUserSelect: undefined,
         userSelect: undefined,
-        data: [],
+        data: {},
         modal : false,
         modalEdit: false,
         modalView: false,
@@ -58,6 +58,7 @@ class Group extends Component {
     async getData(){
         if(this.state.teamid !== "" && this.state.teamid !== ""){
           var data = await TeamsManager.getTeamGroup(this.state.teamid, this.state.groupid);
+          console.log(data)
           if(!equal(this.state.data, data)){
               this.setState({data: data}, 
                 () => {
@@ -74,16 +75,18 @@ class Group extends Component {
     
     onRowSelectUser(row, isSelected, e) {
        // if(this.state.idUserSelect != row.id) this.setState({idUserSelect: row.id}, () => {})
-        this.setState({userIdSelect: row.id}, () => {
-            this.state.data.users.forEach((user) => {
-              if(user.id == this.state.userIdSelect){
+        this.setState({idUserSelect: row.id}, () => {
+          
+            this.state.data.group.users.forEach((user) => {
+              if(user.id == this.state.idUserSelect){
                   this.setState({userSelect: user},
                     () => {
                         this.updateStateButtonUser()
                     });
               }
             })
-          });
+          
+      });
     }
 
     async componentDidMount(){
@@ -238,7 +241,7 @@ class Group extends Component {
                             <ButtonToolbar className="mb-3">
                         <ButtonGroup className="mr-2">
                             <Button disabled={this.state.stateButtonUser.add} onClick={this.toggleUserAdd.bind(this)} color="primary"> Add </Button>
-                            <Button disabled={this.state.stateButtonUser.edit} color="primary"> Edit </Button>
+                            <Button disabled={this.state.stateButtonUser.edit} onClick={this.toggleUserEdit.bind(this)} color="primary"> Edit </Button>
                             <Button disabled={this.state.stateButtonUser.delete} color="primary"> Delete </Button>
                         </ButtonGroup>    
                     </ButtonToolbar>

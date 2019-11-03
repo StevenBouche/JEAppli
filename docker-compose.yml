@@ -1,0 +1,38 @@
+version: "3"
+services:
+    client:
+        container_name: client
+        build:
+            context: ./client
+            dockerfile: Dockerfile
+        image: webapp-client
+        expose:
+            - "443"
+        ports:
+            - "443:443"
+        volumes:
+            - ./client:/client
+        links:
+            - server
+    server:
+        container_name: server
+        build:
+            context: ./server
+            dockerfile: Dockerfile
+        image: webapp-api
+        expose:
+            - "8080"
+        ports:
+            - "8080:8080"
+        volumes:
+            - ./server:/server
+        links:
+            - mongo
+    mongo:
+        image: mongo
+        restart: always
+        container_name: mongo
+        expose:
+            - "28018"
+        ports:
+            - "28018:28018"

@@ -2,7 +2,7 @@ import axios from 'axios';
 import Cookies from 'universal-cookie';
 import crypt from '../utils/cryptoUtils';
 //todo link api
-let baseURL = 'https://localhost:8080/api';
+let baseURL = 'https://appJe.stevenbouche.com:8080/api';
 const RequestManager = {};
 
 function getKey() {

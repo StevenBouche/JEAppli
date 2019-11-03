@@ -11,8 +11,9 @@ var app = require("./app.js");
 
 
 const httpsOptions = {
-    key: fs.readFileSync('./Certificat/key.pem'),
-    cert: fs.readFileSync('./Certificat/cert.pem')
+    key: fs.readFileSync('./Certificat/appje.stevenbouche.com/privkey.pem','utf8'),
+    cert: fs.readFileSync('./Certificat/appje.stevenbouche.com/cert.pem','utf8'),
+    ca: fs.readFileSync('./Certificat/appje.stevenbouche.com/chain.pem','utf8')
 }
 
 https.createServer(httpsOptions, app).listen(port, () => {

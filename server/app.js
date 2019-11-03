@@ -18,7 +18,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 
 const app = Express();
 
-var whitelist = ['http://localhost:3000']
+var whitelist = ['https://localhost:443','http://localhost:443','https://appje.stevenbouche.com']
 var corsOptions = {
     origin: function (origin, callback) {
         if (whitelist.indexOf(origin) !== -1) {
