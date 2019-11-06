@@ -32,7 +32,12 @@ services:
         image: mongo
         restart: always
         container_name: mongo
+        volumes:
+            - data:/data/db
         expose:
             - "28018"
         ports:
             - "28018:28018"
+
+volumes:
+  data:
